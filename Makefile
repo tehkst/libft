@@ -1,9 +1,36 @@
-#ifndef	LIBFT_H
-#define	LIBFT_H
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: toniteh <toniteh@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/05/13 16:11:24 by toniteh           #+#    #+#              #
+#    Updated: 2025/05/13 16:11:40 by toniteh          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-#include <unistd.h>
-#include <stdlib.h>
+NAME = libft.a
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
+RM = rm -f
 
-int	ft_isalpha(int c);
+SRC = $(wildcard ft_*.c)
+OBJ = $(SRC:.c=.o)
 
-#endif
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(AR) $(NAME) $(OBJ)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	$(RM) $(OBJ)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
