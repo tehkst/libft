@@ -6,15 +6,33 @@
 /*   By: toniteh <toniteh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 13:33:03 by toniteh           #+#    #+#             */
-/*   Updated: 2025/05/14 14:08:42 by tteh             ###   ########.fr       */
+/*   Updated: 2025/05/14 22:45:22 by toniteh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_words(char const *s, char c)
+int is_sep(char c, char sep)
 {
-	int	count;
+	return (c == sep);
+}
+
+char *copy_word(const char *start, const char *end)
+{
+	char *word;
+	size_t len;
+
+	len = end - start;
+	word = (char *)malloc(len + 1);
+	if (!word)
+		return (0);
+	ft_strlcpy(word, start, len + 1);
+	return (word);
+}
+
+int count_words(char const *s, char c)
+{
+	int count;
 
 	count = 0;
 	while (*s)
@@ -31,10 +49,10 @@ int	count_words(char const *s, char c)
 	return (count);
 }
 
-char	*word_dup(const char *s, size_t len)
+char *word_dup(const char *s, size_t len)
 {
-	char	*word;
-	size_t	i;
+	char *word;
+	size_t i;
 
 	i = 0;
 	word = (char *)malloc(len + 1);
@@ -59,38 +77,29 @@ void	ft_free_split(char **split, size_t j)
 	free(split);
 }
 
-char	**ft_split(char const *s, char c)
+char **ft_split(char const *s, char c)
 {
-	char	**result;
-	size_t	i;
-	size_t	j;
-	size_t	start;
+	char **result;
+	size_t i;
+	size_t *start;
 
 	i = 0;
-	j = 0;
-	if (!s)
-		return (0);
 	result = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!result)
 		return (0);
-	while (s[i])
+	while (*s)
 	{
-		while (s[i] == c)
-			i++;
-		start = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > start)
+		while (*s && is_sep(*s, c))
+			s++;
+		if (*s)
 		{
-			result[j] = word_dup(s + start, i - start);
-			if (!result[j])
-			{
-				ft_free_split(result, j);
-				return (0);
-			}
-			j++;
+			start = s;
+			while (*s && !is_sep(*s, c))
+				s++;
+			result[i] = copy_word(start, s);
+			i++;
 		}
 	}
-	result[j] = 0;
+	result[i] = NULL;
 	return (result);
 }
