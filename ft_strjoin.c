@@ -6,7 +6,7 @@
 /*   By: toniteh <toniteh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 03:41:53 by toniteh           #+#    #+#             */
-/*   Updated: 2025/05/14 22:17:59 by toniteh          ###   ########.fr       */
+/*   Updated: 2025/05/14 23:15:02 by toniteh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char    *ft_strjoin(char const *s1, char const *s2)
     if (!result)
         return (NULL);
     i = 0;
-    while (i < s1[i])
+    while (s1[i])
     {
         result[i] = s1[i];
         i++;

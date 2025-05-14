@@ -6,98 +6,75 @@
 /*   By: toniteh <toniteh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 13:33:03 by toniteh           #+#    #+#             */
-/*   Updated: 2025/05/14 22:45:22 by toniteh          ###   ########.fr       */
+/*   Updated: 2025/05/14 23:11:42 by toniteh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int is_sep(char c, char sep)
+int	is_sep(char c, char *charset)
 {
-	return (c == sep);
-}
-
-char *copy_word(const char *start, const char *end)
-{
-	char *word;
-	size_t len;
-
-	len = end - start;
-	word = (char *)malloc(len + 1);
-	if (!word)
-		return (0);
-	ft_strlcpy(word, start, len + 1);
-	return (word);
-}
-
-int count_words(char const *s, char c)
-{
-	int count;
-
-	count = 0;
-	while (*s)
+	while (*charset)
 	{
-		while (*s && *s == c)
-			s++;
-		if (*s)
+		if (c == *charset)
+			return (1);
+		charset++;
+	}
+	return (0);
+}
+
+int	count_words(char *str, char *charset)
+{
+	int	count = 0;
+
+	while (*str)
+	{
+		while (*str && is_sep(*str, charset))
+			str++;
+		if (*str)
 		{
 			count++;
-			while (*s && *s != c)
-				s++;
+			while (*str && !is_sep(*str, charset))
+				str++;
 		}
 	}
 	return (count);
 }
 
-char *word_dup(const char *s, size_t len)
+char	*copy_word(char *start, char *end)
 {
-	char *word;
-	size_t i;
+	int		len = end - start;
+	char	*word;
+	int		i = 0;
 
-	i = 0;
-	word = (char *)malloc(len + 1);
+	word = (char *)malloc(sizeof(char) * (len + 1));
 	if (!word)
-		return (0);
-	while (i < len)
-	{
-		word[i] = s[i];
-		i++;
-	}
+		return (NULL);
+	while (start < end)
+		word[i++] = *start++;
 	word[i] = '\0';
 	return (word);
 }
 
-void	ft_free_split(char **split, size_t j)
+char	**ft_split(char *str, char *charset)
 {
-	while (j > 0)
-	{
-		j--;
-		free(split[j]);
-	}
-	free(split);
-}
+	char	**result;
+	int		i = 0;
+	char	*start;
 
-char **ft_split(char const *s, char c)
-{
-	char **result;
-	size_t i;
-	size_t *start;
-
-	i = 0;
-	result = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
+	result = (char **)malloc(sizeof(char *) * (count_words(str, charset) + 1));
 	if (!result)
-		return (0);
-	while (*s)
+		return (NULL);
+	while (*str)
 	{
-		while (*s && is_sep(*s, c))
-			s++;
-		if (*s)
+		while (*str && is_sep(*str, charset))
+			str++;
+		if (*str)
 		{
-			start = s;
-			while (*s && !is_sep(*s, c))
-				s++;
-			result[i] = copy_word(start, s);
-			i++;
+			start = str;
+			while (*str && !is_sep(*str, charset))
+				str++;
+			result[i++] = copy_word(start, str);
 		}
 	}
 	result[i] = NULL;
