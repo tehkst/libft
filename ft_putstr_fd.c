@@ -6,7 +6,7 @@
 /*   By: toniteh <toniteh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 13:57:08 by toniteh           #+#    #+#             */
-/*   Updated: 2025/05/13 13:58:04 by toniteh          ###   ########.fr       */
+/*   Updated: 2025/05/14 14:04:57 by tteh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-    if (s == NULL)
-        return ;
-    write(fd, s, ft_strlen(s));
+	if (s == NULL)
+		return ;
+	write(fd, s, ft_strlen(s));
 }

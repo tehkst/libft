@@ -6,18 +6,18 @@
 /*   By: toniteh <toniteh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 12:51:56 by toniteh           #+#    #+#             */
-/*   Updated: 2025/05/13 15:11:22 by toniteh          ###   ########.fr       */
+/*   Updated: 2025/05/14 14:22:31 by tteh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int    ft_strlen(const char *s)
+unsigned int	ft_strlen(const char *s)
 {
-    unsigned int    i;
-    
-    i = 0;
-    while (s[i])
-        i++;
-    return (i);
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

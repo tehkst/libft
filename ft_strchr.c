@@ -6,7 +6,7 @@
 /*   By: toniteh <toniteh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 12:51:42 by toniteh           #+#    #+#             */
-/*   Updated: 2025/05/06 12:53:30 by toniteh          ###   ########.fr       */
+/*   Updated: 2025/05/14 14:11:18 by tteh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-    while (*s)
-    {
-        if (*s == (char)c)
-        {
-            return ((char *)s);
-        }
-        s++;
-    }
-    if (c == '\0')
-    {
-        return ((char *)s);
-    }
-    return (0);
+	while (*s)
+	{
+		if (*s == (char)c)
+		{
+			return ((char *)s);
+		}
+		s++;
+	}
+	if (c == '\0')
+	{
+		return ((char *)s);
+	}
+	return (0);
 }

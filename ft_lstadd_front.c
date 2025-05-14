@@ -6,7 +6,7 @@
 /*   By: toniteh <toniteh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:42:01 by toniteh           #+#    #+#             */
-/*   Updated: 2025/05/13 14:45:13 by toniteh          ###   ########.fr       */
+/*   Updated: 2025/05/14 13:22:58 by tteh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-    if (lst && new)
-    {
-        new->next = *lst;
-        *lst = new;
-    }
+	if (lst && new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }

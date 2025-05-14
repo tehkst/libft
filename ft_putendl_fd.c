@@ -6,7 +6,7 @@
 /*   By: toniteh <toniteh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 13:58:31 by toniteh           #+#    #+#             */
-/*   Updated: 2025/05/13 14:00:08 by toniteh          ###   ########.fr       */
+/*   Updated: 2025/05/14 14:02:36 by tteh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-    if (s)
-    {
-        ft_putstr_fd(s, fd);
-        ft_putchar_fd('\n', fd);
-    }
+	if (s)
+	{
+		ft_putstr_fd(s, fd);
+		ft_putchar_fd('\n', fd);
+	}
 }

@@ -6,18 +6,18 @@
 /*   By: toniteh <toniteh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 12:51:12 by toniteh           #+#    #+#             */
-/*   Updated: 2025/05/13 16:35:26 by toniteh          ###   ########.fr       */
+/*   Updated: 2025/05/14 13:01:33 by tteh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int    ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    int     result;
+	int	result;
 
-    result = 0;
-    if (c >= '0' && c <= '9')
-        result = 1;
-    return (result);
+	result = 0;
+	if (c >= '0' && c <= '9')
+		result = 1;
+	return (result);
 }

@@ -6,16 +6,20 @@
 /*   By: toniteh <toniteh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:38 by toniteh           #+#    #+#             */
-/*   Updated: 2025/05/07 13:13:54 by toniteh          ###   ########.fr       */
+/*   Updated: 2025/05/14 13:18:07 by tteh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int num_len(int n)
+static int	num_len(int n)
 {
-	int len = (n <= 0);
+	int	len;
 
+	if (n <= 0)
+		len = 1;
+	else
+		len = 0;
 	while (n)
 	{
 		n /= 10;
@@ -24,12 +28,14 @@ static int num_len(int n)
 	return (len);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	char *str;
-	int len = num_len(n);
-	long num = n;
+	char	*str;
+	int		len;
+	long	num;
 
+	len = num_len(n);
+	num = n;
 	str = (char *)malloc(len + 1);
 	if (!str)
 		return (NULL);

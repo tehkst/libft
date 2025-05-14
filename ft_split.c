@@ -6,15 +6,15 @@
 /*   By: toniteh <toniteh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 13:33:03 by toniteh           #+#    #+#             */
-/*   Updated: 2025/05/13 17:52:00 by toniteh          ###   ########.fr       */
+/*   Updated: 2025/05/14 14:08:42 by tteh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int count_words(char const *s, char c)
+int	count_words(char const *s, char c)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (*s)
@@ -31,10 +31,10 @@ int count_words(char const *s, char c)
 	return (count);
 }
 
-char *word_dup(const char *s, size_t len)
+char	*word_dup(const char *s, size_t len)
 {
-	char *word;
-	size_t i;
+	char	*word;
+	size_t	i;
 
 	i = 0;
 	word = (char *)malloc(len + 1);
@@ -59,12 +59,12 @@ void	ft_free_split(char **split, size_t j)
 	free(split);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char **result;
-	size_t i;
-	size_t j;
-	size_t start;
+	char	**result;
+	size_t	i;
+	size_t	j;
+	size_t	start;
 
 	i = 0;
 	j = 0;

@@ -6,7 +6,7 @@
 /*   By: toniteh <toniteh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:45:40 by toniteh           #+#    #+#             */
-/*   Updated: 2025/05/13 14:46:34 by toniteh          ###   ########.fr       */
+/*   Updated: 2025/05/14 13:46:50 by tteh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	ft_lstsize(t_list *lst)
 {
-    int	i;
+	int	i;
 
-    i = 0;
-    while (lst)
-    {
-        lst = lst->next;
-        i++;
-    }
-    return (i);
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }

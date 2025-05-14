@@ -6,18 +6,18 @@
 /*   By: toniteh <toniteh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 12:51:17 by toniteh           #+#    #+#             */
-/*   Updated: 2025/05/06 22:23:55 by toniteh          ###   ########.fr       */
+/*   Updated: 2025/05/14 13:10:31 by tteh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int    ft_isprint(int c)
+int	ft_isprint(int c)
 {
-    int result;
+	int	result;
 
-    result = 0;
-    if (c >= 32 && c <= 126)
-        result = 1;
-    return (result);
+	result = 0;
+	if (c >= 32 && c <= 126)
+		result = 1;
+	return (result);
 }
